@@ -1,0 +1,136 @@
+"","url","author","date","timestamp","score","upvotes","downvotes","golds","comment","comment_id"
+"1","https://www.reddit.com/r/business/comments/1bfsh3h/faq_i_hate_my_job_should_i_start_a_business/","thepublicunion","2024-03-16",1710588105,2,2,0,0,"You absolutely should - don't leave your regular gig until you have your foundation set - build your articles of credibility,  social properties,  websites, this things , if possible land 2 or 3 clients to demo viability - then you start thinking of quiting","1"
+"2","https://www.reddit.com/r/business/comments/1bfsh3h/faq_i_hate_my_job_should_i_start_a_business/","Giraffepunani","2024-03-16",1710582458,1,1,0,0,"Do you have the funds and a business plan?","2"
+"3","https://www.reddit.com/r/business/comments/1bgg64s/airlines_need_to_boost_revenue_theyre_coming_for/","carlfish","2024-03-16",1710626688,1,1,0,0,"Ah, wonderful, even more competition for space in the overhead bins because everyone brings the maximum possible size bag as carry-on.","1"
+"4","https://www.reddit.com/r/business/comments/1bfvudk/how_has_shopify_affected_your_margins/","arcanereborn","2024-03-16",1710605614,2,2,0,0,"Lets look at normal retail tech stack  
+
+ECOM Backend - The backbone if your operation. This is important to have a well understood back-end with strong API support. It will be a nightmare as you grow if this is lacking and will cost you a shitload of money if you need to make a lot of custom integrations to make anything work. 
+
+ECOM Frontend - what the customer sees. The User Experience of the website, makes or breaks it for many customers. Its more than a theme, this is how the customer perceives your brand. You cheap out on this, and you can literally see the frustration points from customers come in either via your support tools or via insight tools. 
+
+Customer Data Platform (CDP) + Email Sending Platform (ESP) (best return in terms of marketing communication). Email marketing has a massive impact in your revenue that you will see every single email that goes out. That connected information also gives you a massive insight into who your customer is. The bigger this list grows the more you are going to make. improving them will also help move from a purely acquisition based strategy to a retention strategy. Mailchimp, Klaviyo are your beginner ones for pure players (Ecom only) shops. 
+
+Order Management - how your fulfillment is handled, even if you are doing this manually, its still needs to be tracked. This is as basic as order confirmed, paid, shipped, cancelled and returned, to much more complex capabilities that allow for exchanges to reduce returns, and more. 
+
+Payment Solution Provider (PSP) - Cant have a business without a payment provider. Your checkout the last step in the funnel and a shit experience will lose you money. Having a shitty integration with your PSP will make your life hell for accounting. 
+
+Feed aggregator (Optional)- Needed by all the major advertising channels to enable shopping channels within their network. Some platforms can create product feeds that needed by many advanced ecom tools. Search &amp; Merch/ProductRecommendations/Shopping Feeds. Its worth it, especially one that easy to understand and transform you product data. Channable for example. 
+
+PIM (optional) - Production Information Management, more advanced and saves you a lot of time when it comes to product data. But its a bit advanced, but very helpful when its comes to multi-lang/country/market. Akeneo and InRiver for example 
+
+Content Management System (CMS) (optional) - With many ecom platforms like Shopify/Woo/Shopware/etc they come with a built in CMS. They are limited, but usually good enough for a while. But when you start hosting more data intensive formats you will look into having a CMS to host and transform your content. 
+
+Enterprise resource planning (ERP) (optional) - Expensive and you need a certain scale before this is important. But its really important after a while when it comes to your supplier ordering and your own internal process. 
+
+Warehouse Management Software (WMS) (optional) - Your pick and pack organization. You can get away with this manually for some time depending on how many SKUs you have, but after a certain scale (especially in the number of orders per day and your delivery cutoff time) you will want to improve this to gain efficiency and will allow you onboard and off-board staff easily. 
+
+ Integration Layer (optional)- This allows you to easily transform payloads from one system to another. It makes your life easier, but their business model is usually paid in the number of calls. 
+
+Data lake (optional)- Its going to be very difficult to completely understand all your data. Every company needs/should have analytics and that starts with storing your data. From there you can clean and transform your data and make internal dashboards of whats going on. Many platforms can do a light version of this, but once you start adding more integrations, you need to take responsibility for it. You will always need 3 elements to make this work for you. 1. Data Scientist, 2. Data Engineer, 3. Data Analyst. This usually because each one does a role and its around this 1. Understanding the data 2. Clean the Data , 3. The commercial relevance. There are a lot of tools for this on market both free and paid. All promise to solve your problems, but in the end you have to know what is important to grow your business and the data is there to inform you if the decision worked or not. 
+
+Customer Service - If you have a B2C business, you will need support. Zendesk is popular but expensive. There a lot of good solutions on shopify that will break your bank, see gorgias. Email is bare minimum. 
+
+
+ Now if you are 1 person business and you are really dont care about all this, then sure go woo or wordpress, but if you are growing. They will be a huge pain in the ass. Shopify is strong in usability and has a lot of connectors. Its easy to built with, and there are a lot of good agencies that cater to it. Its ease of use and app marketplace is the reason why its the biggest ecom platform in the world. The marketplace usually has a solution to problem you are having, because you likely not the first person to have your [insert problem], and there usually is a solution.","1"
+"5","https://www.reddit.com/r/business/comments/1bfvudk/how_has_shopify_affected_your_margins/","SiliconDoor","2024-03-16",1710568555,1,1,0,0,"I do not operate a e-commerce store currently however, you can just use WordPress with Woocommerce plugin for free. You can do pretty much everything with it and it is amazing.","2"
+"6","https://www.reddit.com/r/business/comments/1bfuatr/business_owner_wanting_rent_his_business_to/","crt4902","2024-03-16",1710555625,1,1,0,0,"This doesnt make much sense, you cant just rent the entire business to someone. Unless he sells there is no way he wouldnt still be a responsible party.
+
+He could hire the friend as a manager and do a profit share. He would retain full ownership and control. He would be free to allow the friend to make independent decisions and the friend could handle all aspects of the business.
+
+He could give/sell a portion of his stake in the business to the friend and become a silent partner. He loses some ownership here. And wouldnt be able to just take it back.","1"
+"7","https://www.reddit.com/r/business/comments/1bfuatr/business_owner_wanting_rent_his_business_to/","Luckyy007","2024-03-16",1710587580,1,1,0,0,"I'm not from the US.
+
+Here its pretty common that restaurants are operated under long time lease agreements. 
+
+The owner gets paid a defined premium for letting someone else use their asset.","1_1"
+"8","https://www.reddit.com/r/business/comments/1bgbrgb/need_an_advice/","GolfCourseConcierge","2024-03-16",1710619107,6,6,0,0,"Oh for the love of god please don't start a course. 
+
+Right now you're at the stage of life of ""I think I know what I'm doing"" but really it's ""I don't know what I don't know yet.""
+
+You aren't ready to teach. Even if you've made millions. There is no ""system"" - luck and timing are just as much of it.","1"
+"9","https://www.reddit.com/r/business/comments/1bgbrgb/need_an_advice/","bruhbruhbruhbruh_br","2024-03-16",1710619779,0,0,0,0,"The plan I have right now is something like that
+
+Record videos for the course
+
+Get some traders to work as mentors
+
+But thank you for the advice=O<û","1_1"
+"10","https://www.reddit.com/r/business/comments/1bgbrgb/need_an_advice/","GolfCourseConcierge","2024-03-16",1710619833,3,3,0,0,"There's never been a better time for the phrase ""the blind leading the blind"".","1_1_1"
+"11","https://www.reddit.com/r/business/comments/1bgbrgb/need_an_advice/","bruhbruhbruhbruh_br","2024-03-16",1710619909,0,0,0,0,"But isnt that statement true for most the trading gurus and mentors?","1_1_1_1"
+"12","https://www.reddit.com/r/business/comments/1bgbrgb/need_an_advice/","GolfCourseConcierge","2024-03-16",1710620040,1,1,0,0,"That doesn't make it an endorsement. It just shows you a room full of idiots.","1_1_1_1_1"
+"13","https://www.reddit.com/r/business/comments/1bgbrgb/need_an_advice/","DANENjames89","2024-03-16",1710626613,2,2,0,0,"Don't do a course, dude. You'll eventually get people trying to sue you when they inevitably lose their portfolio going big ""following"" your stuff
+
+If you're really profitable, and you're really doing well, I'd just delve deeper and move into longer investments. Learn more about dividends and IRA's. Are you doing options yet? Option strategies? Do you trade futures too? I'd even consider doing financial advising in college if you're thinking of going. 
+
+You're hella young still. I know it feels like you need to have it all down right now because time goes fast. You've already got a much better start than most your age for sure, but a trading course is not the way you want to go in this. It's considered a very scammy thing nowadays, and you will be hated and attacked when trades dont go well, and all it takes is one","2"
+"14","https://www.reddit.com/r/business/comments/1bgbrgb/need_an_advice/","bruhbruhbruhbruh_br","2024-03-16",1710628260,1,1,0,0,"Jeez I guess youre right..
+I thought about opening my own prop firms when Im older, 
+
+Right now I only trade futures because its way more convenient than options imo 
+
+=O<û","2_1"
+"15","https://www.reddit.com/r/business/comments/1bgbrgb/need_an_advice/","oRegressoDoSirio","2024-03-16",1710618397,1,1,0,0,"Swing trading? Day trading? Scalping?","3"
+"16","https://www.reddit.com/r/business/comments/1bgbrgb/need_an_advice/","bruhbruhbruhbruh_br","2024-03-16",1710619607,0,0,0,0,"Scalping","3_1"
+"17","https://www.reddit.com/r/business/comments/1bgbrgb/need_an_advice/","oRegressoDoSirio","2024-03-16",1710620771,1,1,0,0,"What indicators do you use? MACD? RSI?","3_1_1"
+"18","https://www.reddit.com/r/business/comments/1bgbrgb/need_an_advice/","bruhbruhbruhbruh_br","2024-03-16",1710628515,1,1,0,0,"I only use ATR and 30s-5m time frames, my strategy is categorical trading,
+It goes like that
+
+- If price action is consolidating
+- Expect it to stay where it has been rather than going to new areas
+- Trade mean reversion
+- Following it back and forth in the consolidation zone
+- Shorting at the top, going long at the bottom
+- The high probability loss would be to try and time breaks to the upside or downside 
+* 
+- If price action is directional
+- Expect it to continue moving in that direction until proven otherwise
+- The high probability loss would be to go against it
+- dont trade if price action is chaotic
+Its from ImanTrading, 
+
+I used to trade with Bollinger Bands and RSI when I was new to trading tho","3_1_1_1"
+"19","https://www.reddit.com/r/business/comments/1bg7trp/any_marketing_books_suggestion/","Halimpk3924","2024-03-16",1710601123,1,1,0,0,"When seeking marketing books with a focus on business, consider titles like """"Contagious: How to Build Word of Mouth in the Digital Age"""" by Jonah Berger, """"Influence: The Psychology of Persuasion"""" by Robert Cialdini, and """"Building a StoryBrand: Clarify Your Message So Customers Will Listen"""" by Donald Miller. These books offer valuable insights into marketing strategies and consumer behavior that can benefit businesses. Happy reading!","1"
+"20","https://www.reddit.com/r/business/comments/1bg0h8q/how_does_top_management_day_looklike/","winch25","2024-03-16",1710576462,7,7,0,0,"I'm a CEO in a company with 10m turnover. It's mostly firefighting, strategy and financial management/analysis, litigation management.","1"
+"21","https://www.reddit.com/r/business/comments/1bfzltf/accessing_funding_how_do_you_do_it/","GargleOnDeez","2024-03-16",1710573122,1,1,0,0,"Get a loan from a bank or reputable institute, sourcing the credit if you have 1 million TO will allow you to pay it off the following years. There hardly much to trust worthiness than banks, credit unions or credit card companies -difference being will be the APR for the sizable loans and the risk on your/their part.","1"
+"22","https://www.reddit.com/r/business/comments/1bft5p4/real_estate_investing/","AskFelix","2024-03-16",1710550001,2,2,0,0,"Investing in real estate has a LOT of different parts of it. I would highly recommend you find a mentor who is willing to show you the ropes. Real estate is broad. You can quickly get burned.","1"
+"23","https://www.reddit.com/r/business/comments/1bft5p4/real_estate_investing/","AJ_twotreyy","2024-03-16",1710551352,1,1,0,0,"I dont exactly have many connections =thank u anyways tho","1_1"
+"24","https://www.reddit.com/r/business/comments/1bft5p4/real_estate_investing/","AskFelix","2024-03-16",1710551910,1,1,0,0,"Score.org free mentoring.","1_1_1"
+"25","https://www.reddit.com/r/business/comments/1bft5p4/real_estate_investing/","DieuEmpereurQc","2024-03-16",1710560573,1,1,0,0,"Look at immigration rate and compare it to building rate. If A &gt; B then invest. Else, dont invest","1_1_2"
+"26","https://www.reddit.com/r/business/comments/1bft5p4/real_estate_investing/","mrbeez","2024-03-16",1710550825,2,2,0,0,"Bigger Pockets
+https://www.youtube.com/c/biggerpockets","2"
+"27","https://www.reddit.com/r/business/comments/1bft5p4/real_estate_investing/","MaybeDouble1","2024-03-16",1710551256,1,1,0,0,"I'd start with grabbing a few books. Then, if you have the ability, find someone in your area that does it well, and offer to intern/work for free (in my experience, by providing value, this often leads to a paid position). Once you have some funds, you can implement the strategies you learned.","3"
+"28","https://www.reddit.com/r/business/comments/1bft5p4/real_estate_investing/","AJ_twotreyy","2024-03-16",1710551515,1,1,0,0,"I was able to find a number from a poster on a lamp post. Im tempted to call but in all honesty im not sure if it would be trustworthy","3_1"
+"29","https://www.reddit.com/r/business/comments/1bft5p4/real_estate_investing/","MaybeDouble1","2024-03-16",1710553822,1,1,0,0,"If I were you, I would look to get involved. Be it church, chamber of commerce, real estate meetups, etc. but try to find someone that will invest a bit into you. You may even find a mentor in a field that appeals to you much more than real estate.   
+You may have success with a poster, but I'd hate to hear about you on an episode of dateline.","3_1_1"
+"30","https://www.reddit.com/r/business/comments/1bft5p4/real_estate_investing/","AJ_twotreyy","2024-03-16",1710561624,1,1,0,0,"== i appreciate it, ill definitely look into these things","3_1_1_1"
+"31","https://www.reddit.com/r/business/comments/1bgf0lc/we_need_your_support/","[deleted]","2024-03-16",1710620924,1,1,0,0,"[removed]","1"
+"32","https://www.reddit.com/r/business/comments/1bgf0lc/we_need_your_support/","Previous_Salad_2049","2024-03-16",1710620955,1,1,0,0,"Is that a thing? Instagram just shows copycat profiles of him","1_1"
+"33","https://www.reddit.com/r/business/comments/1bgbwje/seeking_recommendations_for_affordable_law_firms/","Fuzzy_Fish_2329","2024-03-16",1710612956,1,1,0,0,"What state are you in?","1"
+"34","https://www.reddit.com/r/business/comments/1bgb35b/creating_multiple_businesses_dba_llc_etc/","88captain88","2024-03-16",1710610147,1,1,0,0,"I create C corps then have single member LLCs owned by the parent c-corp.   I want nothing tied to me personally","1"
+"35","https://www.reddit.com/r/business/comments/1bg2bca/entrepreneurship_or_franchisee/","CryptographerOk2177","2024-03-16",1710585050,3,3,0,0,"Having a franchise is still entrepreunership. The pro is that you will use that companys brand and customers already know their products. You dont need to invest large amounts of money into advertising.","1"
+"36","https://www.reddit.com/r/business/comments/1bg2bca/entrepreneurship_or_franchisee/","Rude-Historian-6802","2024-03-16",1710608174,2,2,0,0,"My same thoughts! Thank you for the input, my friend.","1_1"
+"37","https://www.reddit.com/r/business/comments/1bg2bca/entrepreneurship_or_franchisee/","CryptographerOk2177","2024-03-16",1710609522,2,2,0,0,"Sure. One more thing. In todays economy I will pick franchise 9/10 times. The one time I wouldnt is the time when I had a great idea and I was absolutely certain that nobody thought about it before. The small companies barely survive these days and the big companies thrive. With a franchise you are part of that big company and you can thrive with it. 
+
+But of course thats only my opinion, maybe I am wrong. Good luck with any decision you are taking.","1_1_1"
+"38","https://www.reddit.com/r/business/comments/1bg2bca/entrepreneurship_or_franchisee/","Rude-Historian-6802","2024-03-16",1710612874,1,1,0,0,"Solid point! Thank you again.","1_1_1_1"
+"39","https://www.reddit.com/r/business/comments/1bg2bca/entrepreneurship_or_franchisee/","MaybeDouble1","2024-03-16",1710595326,2,2,0,0,"Industry can play a role here. For most that you mentioned, Id probably go it alone - but that is just me, and because I dont know of many household names in junk removal, marketing, or mobile food service - so competitive brand recognition isnt as big of a concern. With that, generally, a franchise will train you to some extent as well as offer support. They have a vested interest in you succeeding; however, they will be taking a piece of the pie, so it can definitely impact margin. It also adds to the cost of the venture, as you still have to pay for all of the startup, but have the franchise fee attached as well. They also have a say in how you run things, which can get old - but normally have some proof of concept with a successful track record. 
+
+Whichever you choose, in my opinion, if you show up on time, with a great attitude, an open mind, and work your butt off, I believe you can do it. Create value for the customer, and success will follow.","2"
+"40","https://www.reddit.com/r/business/comments/1bg2bca/entrepreneurship_or_franchisee/","Rude-Historian-6802","2024-03-16",1710608223,2,2,0,0,"I've developed similar conclusions about a franchise. Thank you for the encouragement! I really do appreciate it!","2_1"
+"41","https://www.reddit.com/r/business/comments/1bg2bca/entrepreneurship_or_franchisee/","Iloveproduce","2024-03-16",1710612486,2,2,0,0,"So I think the single most important piece of advice I can give here doesn't have anything to do with Entrepreneurship or Franchisee as an option... it has to do with your own skillset.
+
+I do not know how you got this money, but assuming you got it by working some kind of job you already know what your concrete skill set is and you already know at least one industry at least semi well from working a job in it. You should use this money to buy yourself some kind of ownership role in your own industry, whether that's starting something, buying an existing business (very likely the best option in your spot, better than a franchise by far also better than a startup), or whatever else is available.
+
+If you inherited this money, won the lotto/crypto/whatever, my advice is to first take a year or two and go out and get a job in sales. You want to be in business that's one thing you're never going to be able to outsource entirely, and you never want to be dependent on other people for it if push comes to shove. You'll learn a ton about business, you'll make pretty decent money, you'll get paid to work out a very important muscle, and now there's at least one industry you know pretty well.
+
+Then invest in the industry you were a salesperson in, wherever the best available opportunity is.
+
+Or open a restaurant / get a restaurant franchise and ruin your life lol.","3"
+"42","https://www.reddit.com/r/business/comments/1bg2bca/entrepreneurship_or_franchisee/","Rude-Historian-6802","2024-03-16",1710613214,2,2,0,0,"Your input makes 100% perfect sense as far as using my existing skill sets, which would be drone operation, maintenance, and safety. But, honestly I'm not super happy in the industry and would like to try my hand in something else for the experience. Ill definitely ponder getting some experience in sale since that is important in any business/industry. Thank you!","3_1"
+"43","https://www.reddit.com/r/business/comments/1bg2bca/entrepreneurship_or_franchisee/","Iloveproduce","2024-03-16",1710618097,1,1,0,0,"Qq","3_1_1"
+"44","https://www.reddit.com/r/business/comments/1bg0re9/when_it_comes_to_storytelling_and_creating/","MagnusVenture","2024-03-16",1710576212,1,1,0,0,"Before storytelling, you need to understand why humans engage more with storytelling and how. Then, it becomes easier. :)","1"
+"45","https://www.reddit.com/r/business/comments/1bg0re9/when_it_comes_to_storytelling_and_creating/","Neil333","2024-03-16",1710576925,1,1,0,0,"Yes, important to understand the why for sure","1_1"
+"46","https://www.reddit.com/r/business/comments/1bfv9ig/i_am_a_digital_marketing_and_transformation/","shahsmit33","2024-03-16",1710572044,2,2,0,0,"Hi there pls dm. can discuss","1"
+"47","https://www.reddit.com/r/business/comments/1bfv9ig/i_am_a_digital_marketing_and_transformation/","boredwayne","2024-03-16",1710575908,2,2,0,0,"Hi I just did!","1_1"
+"48","https://www.reddit.com/r/business/comments/1bfv9ig/i_am_a_digital_marketing_and_transformation/","iamcandlemaker","2024-03-16",1710601846,1,1,0,0,"Ok, make our day. Dm please","2"
+"49","https://www.reddit.com/r/business/comments/1bfv9ig/i_am_a_digital_marketing_and_transformation/","kash_god","2024-03-16",1710603487,1,1,0,0,"Will you be interested in Sales and Lead generation for my company?","3"
