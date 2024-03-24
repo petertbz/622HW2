@@ -107,8 +107,11 @@ combined_data$label <- ifelse(combined_data$label == "C", "I", combined_data$lab
 combined_data$label <- ifelse(combined_data$label == "1", "I", combined_data$label)
 combined_data$label <- ifelse(is.na(combined_data$label), "I", combined_data$label)
 combined_data$label <- ifelse(combined_data$label == "n", "N", combined_data$label)
+combined_data$label <- ifelse(combined_data$label == "", "I", combined_data$label)
 
 cleaned_data <- combined_data[combined_data$label != "I",]
+
+write.csv(cleaned_data,"cleaned_data.csv", row.names = FALSE)
 ```
 
 Building upon the comprehensive data collection framework outlined in the Methods section, we started the analysis of the posts by first cleaning the hence collected data. The posts with "Irrelevant" posts were first removed. Finally, we ended up with a list of 838 posts/comments that had some relevance to the topic of our interest. 
