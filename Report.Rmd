@@ -18,11 +18,14 @@ mainfont: Times New Roman
 
 ```{r setup, include=FALSE}
 knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = FALSE,
-                      eval = TRUE, fig.height = 4)
+                      eval = TRUE, fig.height = 3)
 
 library(tidyverse)
 library(RedditExtractoR)
 library(knitr)
+library(readxl)
+library(ggplot2)
+library(tidytext)
 ```
 
 # Introduction
@@ -85,3 +88,87 @@ rm(list = ls())
 ```
 
 # Analysis
+```{r}
+coded_data_1 <- read_xlsx("economy_part1_coded.xlsx")
+coded_data_2 <- read_xlsx("economy_part2_coded.xlsx")
+coded_data_3 <- read_xlsx("economy_part3_coded.xlsx")
+
+coded_data <- rbind(coded_data_1,coded_data_2,coded_data_3)
+
+write.csv(coded_data, "combined_data.csv", row.names = FALSE)
+```
+
+```{r}
+combined_data <- read.csv("combined_data.csv")
+
+
+combined_data$label <- ifelse(combined_data$label == "0", "O", combined_data$label)
+combined_data$label <- ifelse(combined_data$label == "C", "I", combined_data$label)
+combined_data$label <- ifelse(combined_data$label == "1", "I", combined_data$label)
+combined_data$label <- ifelse(is.na(combined_data$label), "I", combined_data$label)
+combined_data$label <- ifelse(combined_data$label == "n", "N", combined_data$label)
+
+cleaned_data <- combined_data[combined_data$label != "I",]
+```
+
+Building upon the comprehensive data collection framework outlined in the Methods section, we started the analysis of the posts by first cleaning the hence collected data. The posts with "Irrelevant" posts were first removed. Finally, we ended up with a list of 838 posts/comments that had some relevance to the topic of our interest. 
+
+```{r}
+# Convert 'timestamp' to readable datetime format
+cleaned_data$datetime <- as.POSIXct(cleaned_data$timestamp, origin = "1970-01-01", tz = "UTC")
+
+# Extract hour from 'datetime' to create a 'time_of_day' column
+cleaned_data$time_of_day <- as.numeric(format(cleaned_data$datetime, "%H"))
+```
+
+The initial review of the hand-coded labels for each post showed that the majority expressed opposing sentiment to "economy is improving". More than half of the posts indicated that the reddit users felt that the economy was not faring well, and has been worse than the past times. On the contrary, analysis indicated that less than 20% of the posts had positive/favorable sentiments associated to them. 
+
+```{r}
+ggplot(cleaned_data, aes(x = label)) +
+  geom_bar() +
+  theme_minimal() +
+  labs(title = "Distribution of Relevance of Posts", x = "Label", y = "Count")
+```
+\begin{center}
+Figure 1: Distribution of in Favor (F), Neutral (N) and Opposing (O) sentiment of cleaned posts
+\end{center}
+
+Furthermore, the distribution of time of the posts over the day was also analyzed. The analysis illustrated how most of the posts were made on the 2nd half of the day through to near mid-night. The discussions were less frequent over the span of the night. Moreover, it was observed that the most frequent posts were made from 3 PM to 6 PM. 
+```{r fig.align='center'}
+ggplot(cleaned_data, aes(x = time_of_day)) +
+  geom_histogram(stat = "count", binwidth = 1) +
+  scale_x_continuous(breaks = seq(0, 23, 1), limits = c(0, 23)) +
+  theme_minimal() +
+  labs(title = "Distribution of Posts Over the Day", x = "Hour of Day", y = "Number of Posts")
+```
+\begin{center}
+Figure 2: Distribution of posts made over the time of the day
+\end{center}
+
+After the initial meta-analysis, the posts were then reviewed to analyze the frequency of words to gather insights on specific topics that were being discussed in these forums. To do this, first the data was tokenized, and cleaned. Moreover, the common stop words were also removed with the use of tidytext library in R. It was observed that the most common words that appeared in the discussions were as expected from our initial assumption of the kind of discussions happening in the online forums.
+
+```{r}
+words_data <- cleaned_data %>%
+  unnest_tokens(word, comment)
+
+data_filtered <- words_data %>%
+  anti_join(stop_words)
+
+word_counts <- data_filtered %>%
+  count(word, sort = TRUE)
+
+```
+
+The frequency of the most common/frequent words occuring in the comments has been visualized below: 
+```{r fig.align='center'}
+ggplot(head(word_counts, 10), aes(x = reorder(word, n), y = n)) +
+  geom_col() +
+  coord_flip() +  # Flips the axes to make it easier to read
+  labs(title = "Top 10 Most Frequent Words in Comments",
+       x = "Word",
+       y = "Frequency")
+```
+
+\begin{center}
+Figure 3: Frequency of most commonly used words in the discussions
+\end{center}
