@@ -1,0 +1,87 @@
+---
+title: "Assignment 2"
+author: 
+  - Saujanya Acharya
+  - Eric Ohemeng
+  - Bozhou(Peter) Tan
+header-includes:
+    - \usepackage{setspace}
+date: "`r Sys.Date()`"
+output: 
+  pdf_document:
+    latex_engine: xelatex
+linestretch: 1
+geometry: margin = 1in
+fontsize: 12pt
+mainfont: Times New Roman
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = FALSE,
+                      eval = TRUE, fig.height = 4)
+
+library(tidyverse)
+library(RedditExtractoR)
+library(knitr)
+```
+
+# Introduction
+
+In this project, the research topic we have chosen is whether the current economic situation in the United States is improving or deteriorating. As we enter 2024, some surveys and statistical data indicate that the U.S. economy is moving in a positive direction. For instance, the Consumer Sentiment Index has risen by over 20 points since last December, and inflation expectations have also decreased, falling into the range seen in the past few years. However, many individuals also express that they haven't felt the improvement in the economic situation themselves; instead, they feel it's getting worse — with inflation still high and income growth sluggish. We aim to understand the perspectives of different individuals in society regarding the current economic situation through discussions among users on Reddit.
+
+# Methods
+
+To extract the threads and comments from Reddit, we first need to choose the keywords or subreddits. There are two methods to extract the posts through Reddit API: one approach is searching the keywords to get a list of threads and extracting comments from those threads; the other way is choosing a specific subreddit and extracting the comments from the subreddit. The former method provides the threads from a wide range of subreddits, which means there are lots of irrelevant threads in the results; the latter method can make sure all threads are under a specific topic or keyword.  After several experiments, we adopt the latter method, choosing several subreddits for listening.
+
+Economy situation is a large topic, including inflation rate, salary and unemployment rate. First of all, we choose the subreddit “economy”, because this subreddit contains threads and comments covering almost all topics about economy, which can help us understand people’s feelings about economy situation from many perspectives. There are also hundreds of comments in this subreddit, making the sample size large enough. Secondly, we also choose some subreddits focusing on a specific economic topic: “inflation”, “business” and “salary”. These subreddits are also helpful but there are some disadvantages compared to the subreddit “economy”. Firstly, threads from these subreddits mainly focus on one economic topic. Secondly, lots of threads and comments are not related to our research topic. Therefore, while we also listen to these subreddits, we lean towards utilizing comments from “economy”. If the data from “economy” is sufficient, we do not intend to utilize comments from other sources. If not, we will also reach records from them.
+
+We listened to those four subreddits for 8 days, from March 16th to March 23rd. Every evening, one member in the group extracted comments from the subreddits posted in the last 24 hours, stored data as .csv files and uploaded them on [**GitHub**](https://github.com/petertbz/622HW2). The details of listening results are shown in Table 1. There are at least 400 posts in "economy" subreddit every day and 4520 comments in total.
+
+After collection, we divided the comments we have in “economy” subreddit into three parts and each member coded the comments into four categories: favor, oppose, neutral and irrelevant. Since the number of relevant posts from “economy” subreddit meets the requirement, we did not code the posts from other subreddits.
+
+```{r}
+economy1 = read.csv("economy_comments_2024-03-16.csv")
+economy2 = read.csv("economy_comments_2024-03-17.csv")
+economy3 = read.csv("economy_comments_2024-03-18.csv")
+economy4 = read.csv("economy_comments_2024-03-19.csv")
+economy5 = read.csv("economy_comments_2024-03-20.csv")
+economy6 = read.csv("economy_comments_2024-03-21.csv")
+economy7 = read.csv("economy_comments_2024-03-22.csv")
+economy8 = read.csv("economy_comments_2024-03-23.csv")
+
+inflation1 = read.csv("inflation_comments_2024-03-16.csv")
+inflation2 = read.csv("inflation_comments_2024-03-17.csv")
+inflation3 = read.csv("inflation_comments_2024-03-18.csv")
+inflation4 = read.csv("inflation_comments_2024-03-19.csv")
+inflation5 = read.csv("inflation_comments_2024-03-20.csv")
+inflation6 = read.csv("inflation_comments_2024-03-21.csv")
+inflation7 = read.csv("inflation_comments_2024-03-22.csv")
+inflation8 = read.csv("inflation_comments_2024-03-23.csv")
+
+business1 = read.csv("business_comments_2024-03-16.csv")
+business2 = read.csv("business_comments_2024-03-17.csv")
+business3 = read.csv("business_comments_2024-03-18.csv")
+business4 = read.csv("business_comments_2024-03-19.csv")
+business5 = read.csv("business_comments_2024-03-20.csv")
+business6 = read.csv("business_comments_2024-03-21.csv")
+business7 = read.csv("business_comments_2024-03-22.csv")
+business8 = read.csv("business_comments_2024-03-23.csv")
+
+salary1 = read.csv("salary_comments_2024-03-16.csv")
+salary2 = read.csv("salary_comments_2024-03-17.csv")
+salary3 = read.csv("salary_comments_2024-03-18.csv")
+salary4 = read.csv("salary_comments_2024-03-19.csv")
+salary8 = read.csv("salary_comments_2024-03-23.csv")
+
+listen = data.frame(Date = c("2024-03-16", "2024-03-17", "2024-03-18", "2024-03-19", "2024-03-20", "2024-03-21", "2024-03-22", "2024-03-23"),
+                    Economy = c(nrow(economy1), nrow(economy2), nrow(economy3), nrow(economy4), nrow(economy5), nrow(economy6), nrow(economy7), nrow(economy8)),
+                    Inflation = c(nrow(inflation1), nrow(inflation2), nrow(inflation3), nrow(inflation4), nrow(inflation5), nrow(inflation6), nrow(inflation7), nrow(inflation8)),
+                    Business = c(nrow(business1), nrow(business2), nrow(business3), nrow(business4), nrow(business5), nrow(business6), nrow(business7), nrow(business8)),
+                    Salary = c(nrow(salary1), nrow(salary2), nrow(salary3), nrow(salary4), 0, 0, 0, nrow(salary8)))
+
+kable(listen, caption = "The number of comments from different subreddits in 8 days")
+
+rm(list = ls())
+```
+
+# Analysis
