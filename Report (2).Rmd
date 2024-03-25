@@ -1,0 +1,210 @@
+---
+title: "Assignment 2"
+author: 
+  - Saujanya Acharya
+  - Eric Ohemeng
+  - Bozhou(Peter) Tan
+header-includes:
+    - \usepackage{setspace}
+date: "`r Sys.Date()`"
+output: 
+  pdf_document:
+    latex_engine: xelatex
+linestretch: 1
+geometry: margin = 1in
+fontsize: 12pt
+mainfont: Times New Roman
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE, echo = FALSE,
+                      eval = TRUE, fig.height = 3)
+
+library(tidyverse)
+library(RedditExtractoR)
+library(knitr)
+library(readxl)
+library(ggplot2)
+library(tidytext)
+```
+
+# Introduction
+
+In this project, the research topic we have chosen is whether the current economic situation in the United States is improving or deteriorating. As we enter 2024, some surveys and statistical data indicate that the U.S. economy is moving in a positive direction. For instance, the Consumer Sentiment Index has risen by over 20 points since last December, and inflation expectations have also decreased, falling into the range seen in the past few years. However, many individuals also express that they haven't felt the improvement in the economic situation themselves; instead, they feel it's getting worse — with inflation still high and income growth sluggish. We aim to understand the perspectives of different individuals in society regarding the current economic situation through discussions among users on Reddit.
+
+# Methods
+
+To extract the threads and comments from Reddit, we first need to choose the keywords or subreddits. There are two methods to extract the posts through Reddit API: one approach is searching the keywords to get a list of threads and extracting comments from those threads; the other way is choosing a specific subreddit and extracting the comments from the subreddit. The former method provides the threads from a wide range of subreddits, which means there are lots of irrelevant threads in the results; the latter method can make sure all threads are under a specific topic or keyword.  After several experiments, we adopt the latter method, choosing several subreddits for listening.
+
+Economy situation is a large topic, including inflation rate, salary and unemployment rate. First of all, we choose the subreddit “economy”, because this subreddit contains threads and comments covering almost all topics about economy, which can help us understand people’s feelings about economy situation from many perspectives. There are also hundreds of comments in this subreddit, making the sample size large enough. Secondly, we also choose some subreddits focusing on a specific economic topic: “inflation”, “business” and “salary”. These subreddits are also helpful but there are some disadvantages compared to the subreddit “economy”. Firstly, threads from these subreddits mainly focus on one economic topic. Secondly, lots of threads and comments are not related to our research topic. Therefore, while we also listen to these subreddits, we lean towards utilizing comments from “economy”. If the data from “economy” is sufficient, we do not intend to utilize comments from other sources. If not, we will also reach records from them.
+
+We listened to those four subreddits for 8 days, from March 16th to March 23rd. Every evening, one member in the group extracted comments from the subreddits posted in the last 24 hours, stored data as .csv files and uploaded them on [**GitHub**](https://github.com/petertbz/622HW2). The details of listening results are shown in Table 1. There are at least 400 posts in "economy" subreddit every day and 4520 comments in total.
+
+After collection, we divided the comments we have in “economy” subreddit into three parts and each member coded the comments into four categories: favor, oppose, neutral and irrelevant. Since the number of relevant posts from “economy” subreddit meets the requirement, we did not code the posts from other subreddits.
+
+```{r}
+economy1 = read.csv("economy_comments_2024-03-16.csv")
+economy2 = read.csv("economy_comments_2024-03-17.csv")
+economy3 = read.csv("economy_comments_2024-03-18.csv")
+economy4 = read.csv("economy_comments_2024-03-19.csv")
+economy5 = read.csv("economy_comments_2024-03-20.csv")
+economy6 = read.csv("economy_comments_2024-03-21.csv")
+economy7 = read.csv("economy_comments_2024-03-22.csv")
+economy8 = read.csv("economy_comments_2024-03-23.csv")
+
+inflation1 = read.csv("inflation_comments_2024-03-16.csv")
+inflation2 = read.csv("inflation_comments_2024-03-17.csv")
+inflation3 = read.csv("inflation_comments_2024-03-18.csv")
+inflation4 = read.csv("inflation_comments_2024-03-19.csv")
+inflation5 = read.csv("inflation_comments_2024-03-20.csv")
+inflation6 = read.csv("inflation_comments_2024-03-21.csv")
+inflation7 = read.csv("inflation_comments_2024-03-22.csv")
+inflation8 = read.csv("inflation_comments_2024-03-23.csv")
+
+business1 = read.csv("business_comments_2024-03-16.csv")
+business2 = read.csv("business_comments_2024-03-17.csv")
+business3 = read.csv("business_comments_2024-03-18.csv")
+business4 = read.csv("business_comments_2024-03-19.csv")
+business5 = read.csv("business_comments_2024-03-20.csv")
+business6 = read.csv("business_comments_2024-03-21.csv")
+business7 = read.csv("business_comments_2024-03-22.csv")
+business8 = read.csv("business_comments_2024-03-23.csv")
+
+salary1 = read.csv("salary_comments_2024-03-16.csv")
+salary2 = read.csv("salary_comments_2024-03-17.csv")
+salary3 = read.csv("salary_comments_2024-03-18.csv")
+salary4 = read.csv("salary_comments_2024-03-19.csv")
+salary8 = read.csv("salary_comments_2024-03-23.csv")
+
+listen = data.frame(Date = c("2024-03-16", "2024-03-17", "2024-03-18", "2024-03-19", "2024-03-20", "2024-03-21", "2024-03-22", "2024-03-23"),
+                    Economy = c(nrow(economy1), nrow(economy2), nrow(economy3), nrow(economy4), nrow(economy5), nrow(economy6), nrow(economy7), nrow(economy8)),
+                    Inflation = c(nrow(inflation1), nrow(inflation2), nrow(inflation3), nrow(inflation4), nrow(inflation5), nrow(inflation6), nrow(inflation7), nrow(inflation8)),
+                    Business = c(nrow(business1), nrow(business2), nrow(business3), nrow(business4), nrow(business5), nrow(business6), nrow(business7), nrow(business8)),
+                    Salary = c(nrow(salary1), nrow(salary2), nrow(salary3), nrow(salary4), 0, 0, 0, nrow(salary8)))
+
+kable(listen, caption = "The number of comments from different subreddits in 8 days")
+
+rm(list = ls())
+```
+
+# Analysis
+```{r}
+coded_data_1 <- read_xlsx("economy_part1_coded.xlsx")
+coded_data_2 <- read_xlsx("economy_part2_coded.xlsx")
+coded_data_3 <- read_xlsx("economy_part3_coded.xlsx")
+
+coded_data <- rbind(coded_data_1,coded_data_2,coded_data_3)
+
+write.csv(coded_data, "combined_data.csv", row.names = FALSE)
+```
+
+```{r}
+combined_data <- read.csv("combined_data.csv")
+
+
+combined_data$label <- ifelse(combined_data$label == "0", "O", combined_data$label)
+combined_data$label <- ifelse(combined_data$label == "C", "I", combined_data$label)
+combined_data$label <- ifelse(combined_data$label == "1", "I", combined_data$label)
+combined_data$label <- ifelse(is.na(combined_data$label), "I", combined_data$label)
+combined_data$label <- ifelse(combined_data$label == "n", "N", combined_data$label)
+
+cleaned_data <- combined_data[combined_data$label != "I",]
+```
+
+Building upon the comprehensive data collection framework outlined in the Methods section, we started the analysis of the posts by first cleaning the hence collected data. The posts with "Irrelevant" posts were first removed. Finally, we ended up with a list of 838 posts/comments that had some relevance to the topic of our interest. 
+
+```{r}
+# Convert 'timestamp' to readable datetime format
+cleaned_data$datetime <- as.POSIXct(cleaned_data$timestamp, origin = "1970-01-01", tz = "UTC")
+
+# Extract hour from 'datetime' to create a 'time_of_day' column
+cleaned_data$time_of_day <- as.numeric(format(cleaned_data$datetime, "%H"))
+```
+
+The initial review of the hand-coded labels for each post showed that the majority expressed opposing sentiment to "economy is improving". More than half of the posts indicated that the reddit users felt that the economy was not faring well, and has been worse than the past times. On the contrary, analysis indicated that less than 20% of the posts had positive/favorable sentiments associated to them. 
+
+```{r}
+ggplot(cleaned_data, aes(x = label)) +
+  geom_bar() +
+  theme_minimal() +
+  labs(title = "Distribution of Relevance of Posts", x = "Label", y = "Count")
+```
+\begin{center}
+Figure 1: Distribution of in Favor (F), Neutral (N) and Opposing (O) sentiment of cleaned posts
+\end{center}
+
+Furthermore, the distribution of time of the posts over the day was also analyzed. The analysis illustrated how most of the posts were made on the 2nd half of the day through to near mid-night. The discussions were less frequent over the span of the night. Moreover, it was observed that the most frequent posts were made from 3 PM to 6 PM. 
+```{r fig.align='center'}
+ggplot(cleaned_data, aes(x = time_of_day)) +
+  geom_histogram(stat = "count", binwidth = 1) +
+  scale_x_continuous(breaks = seq(0, 23, 1), limits = c(0, 23)) +
+  theme_minimal() +
+  labs(title = "Distribution of Posts Over the Day", x = "Hour of Day", y = "Number of Posts")
+```
+\begin{center}
+Figure 2: Distribution of posts made over the time of the day
+\end{center}
+
+After the initial meta-analysis, the posts were then reviewed to analyze the frequency of words to gather insights on specific topics that were being discussed in these forums. To do this, first the data was tokenized, and cleaned. Moreover, the common stop words were also removed with the use of tidytext library in R. It was observed that the most common words that appeared in the discussions were as expected from our initial assumption of the kind of discussions happening in the online forums.
+
+```{r}
+words_data <- cleaned_data %>%
+  unnest_tokens(word, comment)
+
+data_filtered <- words_data %>%
+  anti_join(stop_words)
+
+word_counts <- data_filtered %>%
+  count(word, sort = TRUE)
+
+```
+
+The frequency of the most common/frequent words occuring in the comments has been visualized below: 
+```{r fig.align='center'}
+ggplot(head(word_counts, 10), aes(x = reorder(word, n), y = n)) +
+  geom_col() +
+  coord_flip() +  # Flips the axes to make it easier to read
+  labs(title = "Top 10 Most Frequent Words in Comments",
+       x = "Word",
+       y = "Frequency")
+```
+
+\begin{center}
+Figure 3: Frequency of most commonly used words in the discussions
+\end{center}
+
+We also focused on the dynamics of discussions revolving around key socioeconomic events of the week- the release of inflation figures, the Biden administration's revision on electronic vehicles adoption target and the federal government effort to address housing challenges.
+The graph starts with a moderate number of comments, and we see a small peak coinciding with the "Inflation" event. This is due to the release of an inflation report i.e. the Consumer Prize Index which on spurred a discussion among users, reflected in a mild increase in commenting activity for some days. A significant peak occurs on March 20, 2024, the day Biden administration slashed its target for U.S. electric vehicle adoption from 67% by 2032 to 35%. This also resulted in a high level of user engagement. The conversation centered around the effect of electric cars on the U.S economy. Following the "Electric Vehicle" event, there's a sharp decline in commenting activity before another spike on the "Housing" event day. The release of the annual Economic report which indicated a proactive stance by economists within the Biden administration, advocating for robust federal intervention to alleviate the financial burdens shouldered by prospective homeowners and renters especially Family Size Houses. Such news, given its potential impact on a wide range of issues—from homeownership to the broader economy—naturally serves as a catalyst for debate and dialogue among concerned citizens. 
+
+```{r fig.height=5}
+
+cleaned_data$hour <- format(cleaned_data$datetime, "%H")
+cleaned_data$weekday <- format(cleaned_data$datetime, "%A")
+
+daily_frequency <- cleaned_data %>%
+  mutate(date = as.Date(date)) %>%
+  group_by(date) %>%
+  summarise(Frequency = n())  
+
+event_dates <- data.frame(
+  Event = c( "Inflation", "Electric Vehicle","Housing"),
+  date = as.Date(c("2024-03-16", "2024-03-20", "2024-03-22"))  
+)
+
+ggplot(daily_frequency, aes(x = date, y = Frequency)) +
+  geom_line() +
+  geom_vline(data = event_dates, aes(xintercept = date), linetype = "dashed", color = "red") +
+  geom_text(data = event_dates, aes(x = date, label = Event, y = max(daily_frequency$Frequency)), 
+            vjust = -0.5, color = "red") +
+  labs(title = "Number of Comments by Day with Key Events",
+       x = "Date",
+       y = "Number of Comments") +
+  theme_minimal()
+
+
+```
+
+                                   Conclusion
+Our project delves into Reddit discussions on the economy, revealing widespread concern over issues like inflation and housing. We found that people often post in the late afternoon, and significant news events tend to spark even more discussion. The data shows that despite some optimistic economic indicators, many people remain worried about the cost of living and their financial futures.  This snapshot of public opinion shows us that economic issues are a major concern for many, and what happens in the economy is closely followed by the online community.
+
+
