@@ -107,11 +107,8 @@ combined_data$label <- ifelse(combined_data$label == "C", "I", combined_data$lab
 combined_data$label <- ifelse(combined_data$label == "1", "I", combined_data$label)
 combined_data$label <- ifelse(is.na(combined_data$label), "I", combined_data$label)
 combined_data$label <- ifelse(combined_data$label == "n", "N", combined_data$label)
-combined_data$label <- ifelse(combined_data$label == "", "I", combined_data$label)
 
 cleaned_data <- combined_data[combined_data$label != "I",]
-
-write.csv(cleaned_data,"cleaned_data.csv", row.names = FALSE)
 ```
 
 Building upon the comprehensive data collection framework outlined in the Methods section, we started the analysis of the posts by first cleaning the hence collected data. The posts with "Irrelevant" posts were first removed. Finally, we ended up with a list of 838 posts/comments that had some relevance to the topic of our interest. 
@@ -175,3 +172,38 @@ ggplot(head(word_counts, 10), aes(x = reorder(word, n), y = n)) +
 \begin{center}
 Figure 3: Frequency of most commonly used words in the discussions
 \end{center}
+
+
+
+
+```{r fig.height=5}
+
+cleaned_data$hour <- format(cleaned_data$datetime, "%H")
+cleaned_data$weekday <- format(cleaned_data$datetime, "%A")
+
+daily_frequency <- cleaned_data %>%
+  mutate(date = as.Date(date)) %>%
+  group_by(date) %>%
+  summarise(Frequency = n())  
+
+event_dates <- data.frame(
+  Event = c( "Inflation", "Electric Vehicle","Housing"),
+  date = as.Date(c("2024-03-16", "2024-03-20", "2024-03-22"))  
+)
+
+ggplot(daily_frequency, aes(x = date, y = Frequency)) +
+  geom_line() +
+  geom_vline(data = event_dates, aes(xintercept = date), linetype = "dashed", color = "red") +
+  geom_text(data = event_dates, aes(x = date, label = Event, y = max(daily_frequency$Frequency)), 
+            vjust = -0.5, color = "red") +
+  labs(title = "Number of Comments by Day with Key Events",
+       x = "Date",
+       y = "Number of Comments") +
+  theme_minimal()
+
+
+```
+
+
+
+
